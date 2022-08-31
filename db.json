@@ -1,0 +1,70 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "The Neurobiology",
+      "image": "https://i.pinimg.com/564x/2a/10/41/2a104135b386da9bf898f568d37ab4b9.jpg"
+    },
+
+    {
+      "id": 2,
+      "title": "Maths",
+      "image":"https://i.pinimg.com/564x/c2/71/fe/c271fed9b40606651c4b636f48e5999c.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Statuee",
+      "image":"https://i.pinimg.com/236x/95/58/05/9558051bfbf48e4b9da11c39088226d2.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Maths",
+      "image":"https://i.pinimg.com/236x/f3/97/2e/f3972eda21a9844eb7903df92c6c5824.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Maths",
+      "image":"https://i.pinimg.com/236x/98/d8/5d/98d85d8c142d48305ff3e0f9e1ed9ba5.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Maths",
+      "image":"https://i.pinimg.com/236x/aa/8b/0d/aa8b0d7ec62c7b38bc6a14989ab1b7ae.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Maths",
+      "image":"https://i.pinimg.com/236x/f3/97/2e/f3972eda21a9844eb7903df92c6c5824.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Maths",
+      "image":"https://i.pinimg.com/236x/f9/b6/c7/f9b6c7f76cae0ccfa93b938a8cb51852.jpg"
+    },
+
+    {
+      "id": 2,
+      "title": "Maths",
+      "image":"https://i.pinimg.com/564x/c2/71/fe/c271fed9b40606651c4b636f48e5999c.jpg"
+    },
+
+    {
+      "id": 2,
+      "title": "Maths",
+      "image":"https://i.pinimg.com/564x/c2/71/fe/c271fed9b40606651c4b636f48e5999c.jpg"
+    }
+
+   
+
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

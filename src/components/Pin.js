@@ -16,7 +16,10 @@ const Pin = (props) => {
 
                 {/* <img src={props.url} alt="pin"></img> */}
             </Container>
+            
         </Wrapper >
+
+
     )
 }
 

@@ -1,22 +1,69 @@
 import React from 'react'
 import styled from "styled-components";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+// import './pin.css'
+import HoverVideoPlayer from 'react-hover-video-player';
+import ReactPlayer from 'react-player'
+import AlertDialogSlide from "./SlideUp"
 const Pin = (props) => {
-    console.log("gettinh", props)
+    console.log("ISV", props.isV);
+    // function Video(props) {
+       
+      
+    //     if (props.isV) {
+    //         console.log("img as",props.isV);
+    //         return <img className="img" src={props.url} alt="pin"></img>
+    //     }
+    //     else {
+    //         console.log("video as",props.isV);
+    //         return <ReactPlayer className="img" url={props.url}  width="236px" height="360px" />
+            
+    //     }
+    // }
+
+    const [click,setClick] = React.useState(props.save);
+
+    const [slide,setslide] =React.useState(click);
+
     return (
         <Wrapper>
             <Container className='pin-container'>
+                <div className='ImageWrapper'>
+                    <div>
 
-                <Imagediv image={props.url}>
-                    {/* <Create>
-                        <a href='/'>Color</a>
-                        <KeyboardArrowDownIcon style={{ marginTop: "7px" }} />
-                    </Create><Save className='save' /> */}
-                </Imagediv>
+                    {/* <img className="img" src={props.url} alt="pin"></img> */}
+                    {
+                        props.isV ?  <img className="img" src={props.url} alt="pin"></img> :  <ReactPlayer className="video" url={props.url} playing="true" muted loop="true"  width="236px" height="360px" style={{width:"100%",height:"100%",objectFit:"fill"}}></ReactPlayer>
+                    }
+                         {/* <Video isV={props.isV} />  */}
 
-                {/* <img src={props.url} alt="pin"></img> */}
+                        {/* <HoverVideoPlayer className="img" videoSrc="https://www.youtube.com/watch?v=ysz5S6PUM-U" controls /> */}
+                    </div>
+                    {/* <Imagediv className="Image" image={props.url}> */}
+                    <div className="IconsHideShow">
+                        <div className="div1">
+                            <Create>
+                                <a href='/'>Color</a>
+                                <KeyboardArrowDownIcon style={{ marginTop: "7px" }} />
+                            </Create>
+                            <Save className='save' save = {click}  onClick={() => { setClick(!click);setslide(true)}  }>{click ? 'Saved'  : 'Save'}</Save>
+                            
+                        </div>
+
+                        <IconsWrap className="div2">
+                            <div><MoreHorizOutlinedIcon /></div>
+                            <div><FileUploadOutlinedIcon /></div>
+                        </IconsWrap>
+                    </div>
+                    {/* </Imagediv> */}
+
+                </div>
+
+                <p>{props.title}</p>
             </Container>
-            
+
         </Wrapper >
 
 
@@ -24,42 +71,109 @@ const Pin = (props) => {
 }
 
 
-const Imagediv = styled.div`
-display:flex;
-background-image : url(${props => props.image});
-height:200px;
-width:120px;
-justify-content:space-between;
-// background:blue;
-`;
 
 const Wrapper = styled.div`
-display:inline-block;
-padding:8px;
+display:inline-flex;
+z-index:32;
+padding:0px 6px 16px;
 `;
 
 const Container = styled.div`
 display:flex;
 align-items: center;
+flex-direction:column;
 box-sizing:border-box;
 cursor:pointer;
 width:236px;
+position:relative;
 
-img{
-   
+.ImageWrapper{
+width:100%;
+height:100%;
+}
+iframe{
     display:flex;
     width:100%;
-    cursor: zoom-in;
-    border-radius:16px;
+    // border:1px solid yellow;
     object-fit:cover;
+    border-radius:16px;
+    cursor:zoom-in;
+    overflow:hidden;
+    autoplay:1;
+    
 }
-:hover save{
-    display:block;
+.img{
+    display:flex;
+    width:100%;
+    // border:1px solid yellow;
+    object-fit:cover;
+    border-radius:16px;
+    cursor:zoom-in;
+    overflow:display;
+    // height:100%;
+    // margin-left:-50px;
+   
 }
 
-`;
-const Create = styled.div`
+video{
+    object-fit:fill;
+    border-radius:16px;
+    
+}
+.div1{
     display:flex;
+    color:white;
+    justify-content:space-between;
+}
+
+.div2{
+    display:flex;
+   
+    flex-direction:row-reverse;
+}
+
+.IconsHideShow{
+    display:none;
+    width:236px;
+    height:100%;
+
+}
+:hover .IconsHideShow{
+    display: flex;
+    position: absolute;
+    top: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 12px 40px 12px;
+}
+
+:hover img,iframe{
+   
+        filter: brightness(70%);
+    
+}
+
+
+`;
+
+
+//const Imagediv = styled.div`
+//background-image : url(${props => props.image});
+
+// width: 252px;
+
+// cursor: zoom-in;
+// border-radius:16px;
+// object-fit:cover;
+
+
+
+
+
+//`;
+
+const Create = styled.div`
+display:flex;
     width:60px;
     height:38px;
     align-items:center;
@@ -75,10 +189,39 @@ const Create = styled.div`
 `;
 
 const Save = styled.button`
-width:60px;
-height:38px;
-background-color:yellow;
+width:auto;
+height:auto;
+background-color:${props => props.save ? "black" : "#e60023"};
+color:white;
 border-radius:25px;
+outline:none;
+border:none;
+padding:15px 12px;
+font-size:17px;
+:hover{
+    background-color:${props => props.save ? "black" : "#ad081b"};
+}
+
 `
+
+const IconsWrap = styled.div`
+
+div{
+display:flex;
+height:35px;
+min-width:35px;
+align-items:center;
+justify-content:center;
+border-radius:25px;
+cursor:pointer;
+margin:0px 3px 0px 3px;
+background-color: white;
+:hover {
+    background-color: #C0C0C5	;
+}
+}
+`;
+
+
 
 export default Pin;

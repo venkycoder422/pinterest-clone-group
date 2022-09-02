@@ -3,13 +3,14 @@ import './App.css';
 import Navbar from './components/Navbar';
 import  HomePage  from './components/HomePage';
 import React, { useEffect } from 'react';
-
+import {Routes,Route} from "react-router-dom";
+import { SinglePin } from './components/SinglePin';
 function App() {
 const [pins,setPins] = React.useState([]);
 
 
 const getNewPins =()=>{
-  fetch(`http://localhost:3001/posts`)
+  fetch(`http://localhost:3000/posts`)
         .then(res=>res.json())
         .then(res=>setPins(res));
 }
@@ -20,7 +21,7 @@ useEffect(()=>{
 
 
   const getImages = async(term)=>{
-   return fetch(`http://localhost:3001/posts?title=${term}`)
+   return fetch(`http://localhost:3000/posts?title=${term}`)
             .then(res=>res.json())
   }
 
@@ -48,10 +49,14 @@ useEffect(()=>{
   //console.log(pins);
   // onSearchSubmit("Maths");
   return (
-    <div className="App">
+   <>
       <Navbar onSubmit={onSearchSubmit}/>
-      <HomePage pins={pins}/>
-    </div>
+      <Routes>
+        <Route path="/" element={<HomePage pins={pins}/>}></Route>
+        <Route path="/pin/:id" element={<SinglePin></SinglePin>}></Route>
+      </Routes>
+      
+      </>
   );
 }
 

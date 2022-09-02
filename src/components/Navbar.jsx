@@ -13,13 +13,13 @@ import CancelIcon from '@mui/icons-material/Cancel';
 //     onSubmit: onSearchSubmit()
 // }
 const Navbar = (props) => {
-   
+
     const [input, setInput] = React.useState("");
 
     const onSearchSubmit = (e) => {
         e.preventDefault();
         props.onSubmit(input);
-        
+
     }
 
     return (
@@ -52,21 +52,76 @@ const Navbar = (props) => {
                 </SearchBarWrapper>
                 <DropContent className='Drop'>
                     <IdeasForYou>
-                        <h4>Ideas for you</h4>
-                        <div>1</div>
-                        <div>2</div>
+
+                        <p>Ideas for you</p>
+                        <div className='IdeasFlexMain'>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/2f/e4/00/2fe40091e0caeb745eab7069528b03c8.jpg"></img>
+                                <h5>Maths vocabulary</h5>
+                            </div>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/12/69/7e/12697ef1ee7b648d3f3ac71b4c79f8d3.jpg"></img>
+                                <h5>Teaching techniques</h5>
+                            </div>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/ba/2f/a2/ba2fa28c937da1c797658121be062591.jpg"></img>
+                                <h5>Photo editing</h5>
+                            </div>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/17/d6/9f/17d69fda85598f127a4232f1700ab2e2.jpg"></img>
+                                <h5>Drawing techniques</h5>
+                            </div>
+
+                        </div>
+
+
+
                     </IdeasForYou>
                     <Popular>
-                        <h2>Popular in pinterest</h2>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
+                        <p>Popular in pinterest</p>
+
+                        <div className='IdeasFlexMain'>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/78/35/aa/7835aa32cb58637496c36e93dcdd0681.jpg"></img>
+                                <h5>Ganesh Chathurthi Status</h5>
+                            </div>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/48/07/a3/4807a3c7399db01305c85ed3f4e24f38.jpg"></img>
+                                <h5>Ganesh papa photo</h5>
+                            </div>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/03/84/e3/0384e3992cca30a02b667af82e823c94.jpg"></img>
+                                <h5>Baby ganesh</h5>
+                            </div>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/80/e3/16/80e3168bf7c67581fb2400973bc90a15.jpg"></img>
+                                <h5>Kitchen interior</h5>
+                            </div>
+                            
+
+
+                        </div>
+                        <div className='IdeasFlexMain'>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/6e/19/ab/6e19abff46703debadcdd1bcc1691bf3.jpg"></img>
+                                <h5>Living room design</h5>
+                            </div>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/b3/5c/ee/b35cee0eca8133353ede91ba9e939135.jpg"></img>
+                                <h5>phone wallpaper</h5>
+                            </div>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/2d/67/f9/2d67f9834649b584682ab58606f5a27e.jpg"></img>
+                                <h5>White background</h5>
+                            </div>
+                            <div className='hoverDiv'>
+                                <img src="https://i.pinimg.com/236x/e7/13/1e/e7131e068a7ed8a988cffcac602f120d.jpg"></img>
+                                <h5>Teachers day cards handmade creative</h5>
+                            </div>
+                            
+
+
+                        </div>
                     </Popular>
                 </DropContent>
 
@@ -74,21 +129,25 @@ const Navbar = (props) => {
 
             <IconsWrap >
 
-                <div>
+                <Notify className='notify'>
                     <Link to="/nofity"><NotificationsIcon /></Link>
-                </div>
+                    <h6>Notifications</h6>
+                </Notify>
 
-                <div>
+                <Notify>
                     <Link to="/comments"><TextsmsRoundedIcon /></Link>
-                </div>
+                    <h6>Messages</h6>
+                </Notify>
 
-                <div>
+                <Notify>
                     <Link to=""><AccountCircleIcon /></Link>
-                </div>
+                    <h6>Your profile</h6>
+                </Notify>
 
-                <div>
+                <Notify>
                     <Link to=""><KeyboardArrowDownIcon /></Link>
-                </div>
+                    <h6>Accounts and more options</h6>
+                </Notify>
 
 
             </IconsWrap>
@@ -186,7 +245,6 @@ display:flex;
 `;
 const SearchBarWrapper = styled.div`
 display:flex;
-    
 `;
 
 const SearchWrapper = styled.div`
@@ -194,6 +252,7 @@ const SearchWrapper = styled.div`
     display:flex;
     flex-direction:column;
     height:48px;
+
     width:75%;
     border-radius: 50px;
     border:none;
@@ -233,6 +292,7 @@ const SearchWrapper = styled.div`
         border:5px solid #4a8ad4;
         .Drop{
             display:block;
+            //border:2px solid yellow;
         }
         .Cancel{
             display:block;
@@ -254,6 +314,8 @@ const Iconsstyling = styled.div`
     
 `;
 const IconsWrap = styled(Iconsstyling)`
+position:relative;
+z-index:1;
 div{
 // border:1px solid yellow;
 display:flex;
@@ -266,8 +328,10 @@ cursor:pointer;
 background-color: white;
 
 :hover {
-    background-color: #C0C0C0	;
-}
+    background-color: #C0C0C0;
+   
+} 
+
 }
 `;
 const IconButton = styled.div`
@@ -276,13 +340,128 @@ const IconButton = styled.div`
 `;
 
 const DropContent = styled.div`
+margin:20px 0px 0px 20px;
 
+background-color:white;
+position:relative;
+z-index:1;
 `
-
 const IdeasForYou = styled.div`
+margin:10px; 0px;
+.hoverDiv{
+    position:relative;
+    width:200px;
+    height:100px;
+    color:white;
+    text-align:center;
+    margin:auto;
+   
+    margin:0px 2px 0px 2px; 
+    img{
+        width:100%;
+        height:100%;
+        filter:brightness(70%);
+        border-radius:16px;
+        padding:3px;
+        :hover{
+            filter:brightness(50%);
+        }
+    }
+   
+    h5{
+        text-align:center;
+        text-wrap:wrap;
+        position:absolute;
+        top:40px;
+        left:50px;
+        
+
+    }
+   
+   
+}
+.IdeasFlexMain{
+    display:flex;
+    gap:10px;
+  
+}
+
+
+    
+
+.OverText{
+    position:absolute;
+    top:0;
+    color:white;
+}
 `;
-const Popular = styled.div`
+//Search bar hover Popular div 
+const Popular = styled(IdeasForYou)`
+
+
+.hoverDiv{
+    position:relative;
+    width:200px;
+    height:100px;
+    color:white;
+    text-align:center;
+    margin:auto;
+    margin:3px; 
+    img{
+        width:100%;
+        height:100%;
+        
+          filter:brightness(70%);
+        
+        border-radius:16px;
+    }
+   
+    h5{
+        position:absolute;
+        top:40px;
+        left:50px;
+        
+
+    }
+    
+   
+}
+
+
+
 `;
+
+//Icons hover div css
+
+const Notify = styled.div`
+display:flex;
+flex-direction:column;
+position:relative;
+tetx-align:center;
+
+h6{
+    display:none;
+}
+
+:hover h6{
+display:block;
+min-width:60px;
+word-wrap: normal;
+background-color:black;
+color:white;
+padding:8px;
+border-radius:5px;
+position:absolute;
+top:50px;
+
+}
+`;
+
+const Comment = styled.div``;
+
+const User = styled.div``;
+
+const DownArrow = styled.div``;
 
 export default Navbar
 

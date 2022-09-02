@@ -25,7 +25,7 @@ const HomePage = (props) => {
           urls = data.video;
           // console.log("video",urls);
          }
-          return <Pin  key={index} url={urls} title={title} isV={isVedio} save = {data.save}/>
+          return  <Pin  key={index} url={urls} title={title} isV={isVedio} save = {data.save} id={data.id}/>
         })
         
         }
@@ -44,6 +44,7 @@ height:100%;
 margin-top:15px;
 justify-content:center;
 
+
 `;
 
 const Container = styled.div`
@@ -52,6 +53,8 @@ column-count:6;
 height:100%;
 column-gap:4px;
 margin:0 auto;
+margin: 60px auto;
+
 
 
 

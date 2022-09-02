@@ -31,11 +31,12 @@ const Navbar = (props) => {
                 <a href='/'>Home</a>
             </HomePageButton>
             <Following>
-                <a href='/'>Follow</a>
+            <Link to="/pin/todaypins"><a>Today</a></Link>
             </Following>
             <Create>
-                <a href='/'>Create</a>
+                <a>Create</a>
                 <KeyboardArrowDownIcon style={{ marginTop: "7px" }} />
+                <Link to="/pin/create"><h6>Create pin</h6></Link>
             </Create>
             <SearchWrapper>
                 <SearchBarWrapper>
@@ -130,22 +131,22 @@ const Navbar = (props) => {
             <IconsWrap >
 
                 <Notify className='notify'>
-                    <Link to="/nofity"><NotificationsIcon /></Link>
+                    <Link to="" ><NotificationsIcon style={{color:"#767676",width:"30px",height:"30px"}} /></Link>
                     <h6>Notifications</h6>
                 </Notify>
 
                 <Notify>
-                    <Link to="/comments"><TextsmsRoundedIcon /></Link>
+                    <Link to=""><TextsmsRoundedIcon style={{color:"#767676",width:"30px",height:"30px"}} /></Link>
                     <h6>Messages</h6>
                 </Notify>
 
                 <Notify>
-                    <Link to=""><AccountCircleIcon /></Link>
+                    <Link to=""><AccountCircleIcon style={{color:"#767676",width:"30px",height:"30px"}}/></Link>
                     <h6>Your profile</h6>
                 </Notify>
 
                 <Notify>
-                    <Link to=""><KeyboardArrowDownIcon /></Link>
+                    <Link to=""><KeyboardArrowDownIcon style={{color:"#767676",width:"30px",height:"30px"}}/></Link>
                     <h6>Accounts and more options</h6>
                 </Notify>
 
@@ -165,7 +166,10 @@ background-color:white;
 width:100%;
 // border:1px solid black;
 color:black;
-
+margin:0px 0px 100px 0px;
+position:fixed;
+z-index:2;
+top:0px;
 
 
 `;
@@ -228,6 +232,7 @@ const Following = styled.div`
         
     ;`
 const Create = styled.div`
+
 display:flex;
     height:48px;
     min-width:5%;
@@ -237,10 +242,33 @@ display:flex;
     cursor:pointer;
     background-color: white;
     border-radius:24px;
+    position:relative;
+    z-index:1;
     a {
         text-decoration:none;
         color:black;
         font-weight: 700;
+    }
+    h6{
+        display:none;
+    }
+    
+    :hover h6{
+    display:block;
+    min-width:100px;
+    font-size:16px;
+    word-wrap: normal;
+    background-color:whitesmoke;
+    color:black;
+    padding:10px;
+    border-radius:5px;
+    position:absolute;
+    top:50px;
+    left:-10px;
+    :hover{
+        background-color:#C0C0C0;
+    }
+    
     }
 `;
 const SearchBarWrapper = styled.div`
@@ -288,7 +316,7 @@ const SearchWrapper = styled.div`
     }
    
      :hover{
-        padding:5px;
+        padding:4px;
         border:5px solid #4a8ad4;
         .Drop{
             display:block;
@@ -316,6 +344,7 @@ const Iconsstyling = styled.div`
 const IconsWrap = styled(Iconsstyling)`
 position:relative;
 z-index:1;
+
 div{
 // border:1px solid yellow;
 display:flex;
@@ -340,11 +369,13 @@ const IconButton = styled.div`
 `;
 
 const DropContent = styled.div`
-margin:20px 0px 0px 20px;
-
+margin:15px 0px 0px 20px;
 background-color:white;
 position:relative;
 z-index:1;
+border-bottom-right-radius:20px;
+border-bottom-left-radius:20px;
+
 `
 const IdeasForYou = styled.div`
 margin:10px; 0px;

@@ -3,15 +3,17 @@ import styled from "styled-components";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import { Link } from 'react-router-dom';
 // import './pin.css'
 import HoverVideoPlayer from 'react-hover-video-player';
 import ReactPlayer from 'react-player'
 import AlertDialogSlide from "./SlideUp"
+import { NavLink } from "react-router-dom";
 const Pin = (props) => {
-    console.log("ISV", props.isV);
+    console.log("ISV", props.id);
     // function Video(props) {
-       
-      
+
+
     //     if (props.isV) {
     //         console.log("img as",props.isV);
     //         return <img className="img" src={props.url} alt="pin"></img>
@@ -19,13 +21,13 @@ const Pin = (props) => {
     //     else {
     //         console.log("video as",props.isV);
     //         return <ReactPlayer className="img" url={props.url}  width="236px" height="360px" />
-            
+
     //     }
     // }
 
-    const [click,setClick] = React.useState(props.save);
+    const [click, setClick] = React.useState(false);
 
-    const [slide,setslide] =React.useState(click);
+    const [slide, setslide] = React.useState(click);
 
     return (
         <Wrapper>
@@ -33,31 +35,34 @@ const Pin = (props) => {
                 <div className='ImageWrapper'>
                     <div>
 
-                    {/* <img className="img" src={props.url} alt="pin"></img> */}
-                    {
-                        props.isV ?  <img className="img" src={props.url} alt="pin"></img> :  <ReactPlayer className="video" url={props.url} playing="true" muted loop="true"  width="236px" height="360px" style={{width:"100%",height:"100%",objectFit:"fill"}}></ReactPlayer>
-                    }
-                         {/* <Video isV={props.isV} />  */}
+                        {/* <img className="img" src={props.url} alt="pin"></img> */}
+
+                        {
+                            props.isV ? <Link to={`/pin/${props.id}`}><img className="img" src={props.url} alt="pin"></img></Link> : <ReactPlayer className="video" url={props.url} playing="true" muted loop="true" width="236px" height="360px" style={{ width: "100%", height: "100%", objectFit: "fill" }}></ReactPlayer>
+                        }
+                        {/* <Video isV={props.isV} />  */}
 
                         {/* <HoverVideoPlayer className="img" videoSrc="https://www.youtube.com/watch?v=ysz5S6PUM-U" controls /> */}
                     </div>
                     {/* <Imagediv className="Image" image={props.url}> */}
-                    <div className="IconsHideShow">
+                    <Link to={`/pin/${props.id}`}> <div className="IconsHideShow">
                         <div className="div1">
                             <Create>
                                 <a href='/'>Color</a>
                                 <KeyboardArrowDownIcon style={{ marginTop: "7px" }} />
                             </Create>
-                            <Save className='save' save = {click}  onClick={() => { setClick(!click);setslide(true)}  }>{click ? 'Saved'  : 'Save'}</Save>
-                            
+                            <Save className='save' save={click} onClick={() => { setClick(!click); setslide(true) }}>{click ? 'Saved' : 'Save'}</Save>
+
                         </div>
 
+                       
+                
                         <IconsWrap className="div2">
                             <div><MoreHorizOutlinedIcon /></div>
                             <div><FileUploadOutlinedIcon /></div>
                         </IconsWrap>
-                    </div>
-                    {/* </Imagediv> */}
+                    </div></Link>
+                        {/* </Imagediv> */}
 
                 </div>
 
@@ -136,12 +141,13 @@ video{
     display:none;
     width:236px;
     height:100%;
-
+    
 }
 :hover .IconsHideShow{
     display: flex;
     position: absolute;
     top: 0;
+    
     flex-direction: column;
     justify-content: space-between;
     padding: 10px 12px 40px 12px;

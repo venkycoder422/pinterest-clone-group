@@ -5,6 +5,8 @@ import  HomePage  from './components/HomePage';
 import React, { useEffect } from 'react';
 import {Routes,Route} from "react-router-dom";
 import { SinglePin } from './components/SinglePin';
+import { CreatePin } from './components/CreatePin';
+import { TodayPins } from './components/TodayPins';
 function App() {
 const [pins,setPins] = React.useState([]);
 
@@ -53,7 +55,9 @@ useEffect(()=>{
       <Navbar onSubmit={onSearchSubmit}/>
       <Routes>
         <Route path="/" element={<HomePage pins={pins}/>}></Route>
-        <Route path="/pin/:id" element={<SinglePin></SinglePin>}></Route>
+        <Route path='/pin/:id' element={<SinglePin />}></Route>
+        <Route path='/pin/create' element={<CreatePin />}></Route>
+        <Route path='/pin/todaypins' element={<TodayPins />}></Route>
       </Routes>
       
       </>

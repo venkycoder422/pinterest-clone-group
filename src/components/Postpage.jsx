@@ -9,6 +9,7 @@ import "../css/Postpage.css"
 import { useState } from 'react'
 import { useEffect } from 'react';
 import down_arrow from "../img/down-arrow.png"
+import SendIcon from '@mui/icons-material/Send';
 export default function Postpage() {
 
     const [count, setcount] = useState(30000);
@@ -152,13 +153,7 @@ export default function Postpage() {
                     <div className='post_left'>
                         <div className='container container2'>
                             <img src={postdata.imageUrl} alt="Snow" className='main_image' />
-                            <a href={postdata.imageUrl} target="_blank">
-                                <div className='bottom-left'>
-                                    <img src={right_up} alt="" />
-                                    <h3>View Image</h3>
-
-                                </div>
-                            </a>
+                            
 
                             <a href={postdata.imageUrl} target='_blank'>
                                 <div className='bottom_right_new'>
@@ -254,7 +249,8 @@ export default function Postpage() {
                                 <div className='chat_input'>
                                     <input type="text" name="" id="" value={chat} onChange={(e) => setchat(e.target.value)} onKeyDown={handleKeyDown} />
                                     {/*  */}
-                                    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUvoU4JnjmRTgVD8Om7I_KFIlAt7J0uX2C8g&usqp=CAU" alt = "" onClick={() => handlecommentData()} />
+{/* import SendIcon from '@mui/icons-material/Send'; */}
+                                     <SendIcon className='send_icon' onClick={() => handlecommentData()}/>  
                                 </div>
 
                             </div>
@@ -288,3 +284,11 @@ export default function Postpage() {
         </div>
     )
 }
+
+/* <a href={postdata.imageUrl} target="_blank">
+                                <div className='bottom-left'>
+                                    <img src={right_up} alt="" />
+                                    <h3>View Image</h3>
+
+                                </div>
+                            </a>*/

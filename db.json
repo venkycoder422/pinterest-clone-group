@@ -4,7 +4,7 @@
       "id": 1,
       "uploadUser": "Chinni",
       "profileImage": "https://i.pinimg.com/150x150/63/65/ce/6365cecf0415d565b13912a19e79889e.jpg",
-      "imageurl": "https://i.pinimg.com/564x/f2/e2/52/f2e2524995f2c115d036f5ad3131a145.jpg",
+      "imageurl": "https://i.pinimg.com/236x/f7/9d/55/f79d55dd4b62eb105ed2f70cf9a83e00.jpg",
       "imageName": "Every women should read",
       "imageDescription": "Did they seriously just add Jordan Petersons book to this list?? Never read 12 rules for life"
     }
@@ -21,8 +21,19 @@
       "profilePic": "https://i.pinimg.com/75x75_RS/22/e6/da/22e6dabb019b38e05fbc0d73f1a789f4.jpg",
       "userName": "Madhavi",
       "id": 20
+    },
+    {
+      "comment": "somehtoing",
+      "profilePic": "https://i.pinimg.com/75x75_RS/22/e6/da/22e6dabb019b38e05fbc0d73f1a789f4.jpg",
+      "userName": "Madhavi",
+      "id": 21
+    },
+    {
+      "comment": "hello",
+      "profilePic": "https://i.pinimg.com/75x75_RS/22/e6/da/22e6dabb019b38e05fbc0d73f1a789f4.jpg",
+      "userName": "Madhavi",
+      "id": 22
     }
-   
   ],
   "loggedUserData": {
     "userName": "Madhavi",

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Navbar from '../Navbar/Navbar'
-import './Home_BL.css'
+import './homebl.css'
 
 const Home_BL = () => {
     const user = useSelector(state => state.auth.userData)

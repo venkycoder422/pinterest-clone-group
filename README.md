@@ -4,17 +4,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Dependencies for FrontEnd
 
-react.
-react-router-dom.
-styled-components.
-react-icons
-react-player
-react-dom
+react\
+react-router-dom\
+styled-components\
+react-icons\
+react-player\
+react-dom\
 
 ## Dependecies for Backend
-express
-mongoose
-cors
+express\
+mongoose\
+cors\
 
 
 ### `npm start`

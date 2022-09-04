@@ -1,28 +1,28 @@
 {
   "posts": [
     {
-      "id": 1,
+      
       "title": "The Neurobiology",
-      "image": "https://i.pinimg.com/564x/af/32/b6/af32b660b0f3691104277913374eba1d.jpg",
-      "save":"false"
+      "image": "https://i.pinimg.com/564x/af/32/b6/af32b660b0f3691104277913374eba1d.jpg"
+      
   
     },
 
     {
-      "id": 2,
+      
       "title": "Maths",
-      "image":"https://i.pinimg.com/564x/c2/71/fe/c271fed9b40606651c4b636f48e5999c.jpg",
-      "save":"false"
+      "image":"https://i.pinimg.com/564x/c2/71/fe/c271fed9b40606651c4b636f48e5999c.jpg"
+      
     },
     {
-      "id": 3,
+      
       "title": "Statuee",
       "image":"https://i.pinimg.com/236x/95/58/05/9558051bfbf48e4b9da11c39088226d2.jpg"
 
   
     },
     {
-      "id": 4,
+      
       "title": "Maths",
       "image":"https://i.pinimg.com/236x/f3/97/2e/f3972eda21a9844eb7903df92c6c5824.jpg"
     },

@@ -4,28 +4,28 @@ import styled from "styled-components";
 import Pin from './Pin';
 import { Link } from 'react-router-dom';
 const HomePage = (props) => {
-  let {pins} = props;
- 
+  let pins = props.pins;
+  console.log(pins);
 
   return (
     <Wrapper>
       <Container>
         
         {
-        
         pins?.map((data,index)=>{
           let urls;
           let title = data.title;
           let isVedio=false;
-         if(data.video===undefined){
+         if(data.video===undefined || data.video===""){
           urls = data.image;
+          console.log(urls);
           isVedio=true;
           // console.log("img",urls);
          }else{
           urls = data.video;
           // console.log("video",urls);
          }
-          return  <Pin  key={index} url={urls} title={title} isV={isVedio} save = {data.save} id={data.id}/>
+          return  <Pin  key={index} url={urls} title={title} isV={isVedio} save = {data.save} id={data._id}/>
         })
         
         }

@@ -1,16 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 import PintrestIcon from '../icons/Pinterest.png';
-import SearchIcon from '@mui/icons-material/Search';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import TextsmsRoundedIcon from '@mui/icons-material/TextsmsRounded';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Link } from 'react-router-dom'
-import CancelIcon from '@mui/icons-material/Cancel';
+import SearchIcon from '../icons/SearchIcon.png';
 
+import { Link } from 'react-router-dom';
+import CancelIcon from '../icons/Cancle.png';
+import {BsBellFill} from 'react-icons/bs';
+import {AiFillMessage} from 'react-icons/ai'
+import {AiOutlineDown} from 'react-icons/ai'
+import {FaUserCircle} from 'react-icons/fa'
+import {BiLogOut} from 'react-icons/bi'
 // props:{
 //     onSubmit: onSearchSubmit()
+
+// }
+
+// const LogOutDetails =()=>{
+
+//     return <div>
+//             <h5>Log Out</h5>
+//             <h3>isdf</h3><h1>fjkdjfkd</h1>
+//         </div>
+
 // }
 const Navbar = (props) => {
 
@@ -23,33 +34,36 @@ const Navbar = (props) => {
     }
 
     return (
+
         <NavWrappar>
+
             <Logo>
                 <img src={PintrestIcon}></img>
             </Logo>
             <HomePageButton>
-                <a href='/'>Home</a>
+                <Link to="/"><p>Home</p></Link>
             </HomePageButton>
             <Following>
-            <Link to="/pin/todaypins"><a>Today</a></Link>
+                <Link to="/pin/todaypins"><p style={{fontWeight:"400"}}>Today</p> </Link>
             </Following>
+
             <Create>
-                <a>Create</a>
-                <KeyboardArrowDownIcon style={{ marginTop: "7px" }} />
+                <p style={{fontWeight:"400"}}>Create</p>
+               <AiOutlineDown style={{ marginTop: "7px", width: "16px", height: "16px", marginLeft: "5px" }}/>
                 <Link to="/pin/create"><h6>Create pin</h6></Link>
             </Create>
             <SearchWrapper>
                 <SearchBarWrapper>
 
                     <IconButton className='searchdiv'>
-                        <SearchIcon className='Search' style={{ marginTop: "12px", marginLeft: "7px" }} />
+                        <img src={SearchIcon} className='Search' style={{ marginTop: "16px", marginLeft: "7px", width: "16px", height: "16px" }} />
                     </IconButton>
 
                     <form>
                         <input type="text" placeholder='Search' onChange={(e) => setInput(e.target.value)}></input>
                         <button type="submit" onClick={onSearchSubmit}></button>
                     </form>
-                    <a href="/"><CancelIcon className='Cancel' /></a>
+                    <img alt="cancel" src={CancelIcon} className='Cancel' onClick={() => window.location.reload()} style={{ width: "25px", height: "25px" }} />
                 </SearchBarWrapper>
                 <DropContent className='Drop'>
                     <IdeasForYou>
@@ -98,7 +112,7 @@ const Navbar = (props) => {
                                 <img src="https://i.pinimg.com/236x/80/e3/16/80e3168bf7c67581fb2400973bc90a15.jpg"></img>
                                 <h5>Kitchen interior</h5>
                             </div>
-                            
+
 
 
                         </div>
@@ -119,7 +133,7 @@ const Navbar = (props) => {
                                 <img src="https://i.pinimg.com/236x/e7/13/1e/e7131e068a7ed8a988cffcac602f120d.jpg"></img>
                                 <h5>Teachers day cards handmade creative</h5>
                             </div>
-                            
+
 
 
                         </div>
@@ -130,24 +144,26 @@ const Navbar = (props) => {
 
             <IconsWrap >
 
-                <Notify className='notify'>
-                    <Link to="" ><NotificationsIcon style={{color:"#767676",width:"30px",height:"30px"}} /></Link>
+                <Notify className='icons'>
+                    <Link to="" >< BsBellFill className="ColorChange" style={{  width: "25px", height: "25px" }} /></Link>
+                    
                     <h6>Notifications</h6>
                 </Notify>
 
-                <Notify>
-                    <Link to=""><TextsmsRoundedIcon style={{color:"#767676",width:"30px",height:"30px"}} /></Link>
+                <Notify className='icons'>
+                    <Link to=""><AiFillMessage className="ColorChange" style={{ width: "25px", height: "25px" }}/></Link>
                     <h6>Messages</h6>
                 </Notify>
 
-                <Notify>
-                    <Link to=""><AccountCircleIcon style={{color:"#767676",width:"30px",height:"30px"}}/></Link>
+                <Notify className='icons'>
+                    <Link to="">< FaUserCircle className="ColorChange" style={{ width: "25px", height: "25px" }}/></Link>
                     <h6>Your profile</h6>
                 </Notify>
 
-                <Notify>
-                    <Link to=""><KeyboardArrowDownIcon style={{color:"#767676",width:"30px",height:"30px"}}/></Link>
-                    <h6>Accounts and more options</h6>
+                <Notify className='icons' >
+                <BiLogOut  className="ColorChange" style={{  width: "25px", height: "25px" }} />
+
+                    <h6 className='SignOut'>Log Out</h6>
                 </Notify>
 
 
@@ -263,7 +279,7 @@ display:flex;
     padding:10px;
     border-radius:5px;
     position:absolute;
-    top:50px;
+    top:45px;
     left:-10px;
     :hover{
         background-color:#C0C0C0;
@@ -296,16 +312,19 @@ const SearchWrapper = styled.div`
         display:flex;
         column-span:1;
         width:100%;
+       // background-color:yellow;
     }
 
     form > input {
         background-color: transparent;
         border:none;
         width:100%;
+        height:48px;
         margin-left:5px;
         font-size:20px;
         outline:none;
-        // border:1px solid blue;
+        
+        //border:1px solid blue;
     }
     
     form > button{
@@ -318,6 +337,11 @@ const SearchWrapper = styled.div`
      :hover{
         padding:4px;
         border:5px solid #4a8ad4;
+        form>input{
+            // width:100%;
+        height:30px;
+        // background-color:yellow;
+        }
         .Drop{
             display:block;
             //border:2px solid yellow;
@@ -332,9 +356,9 @@ const SearchWrapper = styled.div`
 
 const Iconsstyling = styled.div`
     display:flex;
-    justify-content:space-evenly;
+    justify-content:space-between;
     padding:1px;
-    width:15%;
+    width:10%;
     align-items:center;
     cursor:pointer;
     // border:1px solid red;
@@ -345,16 +369,22 @@ const IconsWrap = styled(Iconsstyling)`
 position:relative;
 z-index:1;
 
-div{
+.icons{
 // border:1px solid yellow;
 display:flex;
-height:48px;
-min-width:48px;
+height:38px;
+min-width:38px;
 align-items:center;
 justify-content:space-evenly;
 border-radius:50px;
 cursor:pointer;
 background-color: white;
+.ColorChange{
+    color:#767676;
+}
+:hover .ColorChange{
+    color:black;
+}
 
 :hover {
     background-color: #C0C0C0;
@@ -362,6 +392,7 @@ background-color: white;
 } 
 
 }
+
 `;
 const IconButton = styled.div`
 
@@ -369,7 +400,7 @@ const IconButton = styled.div`
 `;
 
 const DropContent = styled.div`
-margin:15px 0px 0px 20px;
+margin:9px 0px 0px 20px;
 background-color:white;
 position:relative;
 z-index:1;
@@ -468,13 +499,16 @@ const Notify = styled.div`
 display:flex;
 flex-direction:column;
 position:relative;
-tetx-align:center;
+text-align:center;
+
+
+
 
 h6{
     display:none;
 }
 
-:hover h6{
+:hover h6 {
 display:block;
 min-width:60px;
 word-wrap: normal;
@@ -485,14 +519,26 @@ border-radius:5px;
 position:absolute;
 top:50px;
 
+
 }
+
+:hover .SignOut {
+    display:block;
+    min-width:60px;
+    word-wrap: normal;
+    background-color:black;
+    color:white;
+    padding:8px;
+    border-radius:5px;
+    position:absolute;
+    top:50px;
+    right:4px;
+    
+    
+    }
 `;
 
-const Comment = styled.div``;
 
-const User = styled.div``;
-
-const DownArrow = styled.div``;
 
 export default Navbar
 

@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from "styled-components";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import KeyboardArrowDownIcon from '../icons/DownArrow.png';
+import FileUploadOutlinedIcon from '../icons/FileUpload.png';
+import MoreHorizOutlinedIcon from '../icons/Options.png';
+import { AiOutlineDown } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 // import './pin.css'
-import HoverVideoPlayer from 'react-hover-video-player';
+
 import ReactPlayer from 'react-player'
 import AlertDialogSlide from "./SlideUp"
-import { NavLink } from "react-router-dom";
+
 const Pin = (props) => {
-    console.log("ISV", props.id);
+    // console.log("ISV", props.id);
     // function Video(props) {
 
 
@@ -38,7 +39,7 @@ const Pin = (props) => {
                         {/* <img className="img" src={props.url} alt="pin"></img> */}
 
                         {
-                            props.isV ? <Link to={`/pin/${props.id}`}><img className="img" src={props.url} alt="pin"></img></Link> : <ReactPlayer className="video" url={props.url} playing="true" muted loop="true" width="236px" height="360px" style={{ width: "100%", height: "100%", objectFit: "fill" }}></ReactPlayer>
+                            props.isV ? <Link to={`/pin/${props.id}`}><img className="img" src={props.url} alt="pin"></img></Link> : <ReactPlayer className="video" url={props.url} playing muted loop width="236px" height="360px" style={{ width: "100%", height: "100%", objectFit: "fill" }}></ReactPlayer>
                         }
                         {/* <Video isV={props.isV} />  */}
 
@@ -49,7 +50,7 @@ const Pin = (props) => {
                         <div className="div1">
                             <Create>
                                 <a href='/'>Color</a>
-                                <KeyboardArrowDownIcon style={{ marginTop: "7px" }} />
+                              <AiOutlineDown style={{width:"20px", marginTop: "7px", color:"white" }}/>
                             </Create>
                             <Save className='save' save={click} onClick={() => { setClick(!click); setslide(true) }}>{click ? 'Saved' : 'Save'}</Save>
 
@@ -58,8 +59,8 @@ const Pin = (props) => {
                        
                 
                         <IconsWrap className="div2">
-                            <div><MoreHorizOutlinedIcon /></div>
-                            <div><FileUploadOutlinedIcon /></div>
+                            <div><img src={MoreHorizOutlinedIcon} styled={{width:"100%"}}/></div>
+                            <div><img alt="upload" src={FileUploadOutlinedIcon}></img></div>
                         </IconsWrap>
                     </div></Link>
                         {/* </Imagediv> */}
@@ -151,6 +152,10 @@ video{
     flex-direction: column;
     justify-content: space-between;
     padding: 10px 12px 40px 12px;
+    img{
+        width:20px;
+        height:20px;
+    }
 }
 
 :hover img,iframe{

@@ -2,19 +2,26 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## dependencies 
-#Frontend
--React
--react-router-dom
--
+## Dependencies for FrontEnd
+
+react
+react-router-dom
+styled-components
+react-icons
+react-player
+react-dom
+
+## Dependecies for Backend
+express
+mongoose
+cors
 
 
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000/](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+
 
 

@@ -1,25 +1,24 @@
 const express = require('express');
-const app = express();
-const PORT = 3001;
 const cors = require('cors');
-const addPin = require('./Controllers/pin');
-const connectDatabase = require('./Database');
+const connectDB = require('./database/index');
+const { registerUser, login } = require('./handlers/handler');
+const { createPin, sendPins, individualPin, createComment } = require('./handlers/pinhandlers');
 
-function logger(req, res, next) {
-    console.log(new Date(), req.method, req.url);
-    next();
-}
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-app.use(cors());
-app.use(express.json());
-app.use(logger);
+app.use(cors())
+app.use(express.json())
 
-app.post('/createPin', addPin);
-
-connectDatabase().then(() => {
-    app.listen(PORT, () => {
-        console.log("Database Connected At PORT: 3001");
-    })
-}).catch((err) => {
-    console.log("Error is", err);
+app.get('/pins', sendPins)
+app.post('/individualpin', individualPin)
+app.post('/createpin', createPin)
+app.post('/register', registerUser)
+app.post('/login', login)
+app.patch("/createComment", createComment)
+connectDB()
+app.listen(PORT, () => {
+    console.log(`server started at ${PORT}`)
 })
+
+

@@ -4,7 +4,13 @@ const pinSchema = new mongoose.Schema({
     title: String,
     description: String,
     image: String,
-    email: String
+    email: String,
+    avatar: String,
+    comments: [{
+        email: String,
+        userImg: String,
+        comment: String
+    }]
 }, {
     timestamps: true
 })

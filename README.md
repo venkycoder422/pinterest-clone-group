@@ -9,12 +9,12 @@ react-router-dom\
 styled-components\
 react-icons\
 react-player\
-react-dom\
+react-dom
 
 ## Dependecies for Backend
 express\
 mongoose\
-cors\
+cors
 
 
 ### `npm start`

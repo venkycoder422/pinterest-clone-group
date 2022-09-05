@@ -38,11 +38,13 @@ const HomePage = (props) => {
 const Wrapper = styled.div`
 background-color:white;
 display:flex;
-width:100%;
+width:95%;
 height:auto;
-margin-top:35px;
+
 justify-content: space-between;
 flex-wrap: wrap;
+margin: auto;
+margin-top:35px;
 `;
 
 const Container = styled.div`

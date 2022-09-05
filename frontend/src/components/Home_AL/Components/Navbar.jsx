@@ -284,6 +284,7 @@ const SearchWrapper = styled.div`
     border-radius: 50px;
     border:none;
     padding-left:10px;
+    padding-right:10px;
     .Cancel{
         display:none;
     }
@@ -295,16 +296,21 @@ const SearchWrapper = styled.div`
         display:flex;
         column-span:1;
         width:100%;
+       // background-color:yellow;
     }
 
     form > input {
         background-color: transparent;
         border:none;
         width:100%;
+        height:48px;
+        
         margin-left:5px;
         font-size:20px;
         outline:none;
-        // border:1px solid blue;
+
+        
+        //border:1px solid blue;
     }
     
     form > button{
@@ -317,12 +323,19 @@ const SearchWrapper = styled.div`
      :hover{
         padding:4px;
         border:5px solid #4a8ad4;
+        form>input{
+         width:100%;
+        height:100%;
+        margin-top:5px;
+        //background-color:yellow;
+        }
         .Drop{
             display:block;
             //border:2px solid yellow;
         }
         .Cancel{
             display:block;
+            margin-top:5px;
         }
        
     }
@@ -368,7 +381,7 @@ const IconButton = styled.div`
 `;
 
 const DropContent = styled.div`
-margin:15px 0px 0px 20px;
+margin:32px 0px 0px 20px;
 background-color:white;
 position:relative;
 z-index:1;

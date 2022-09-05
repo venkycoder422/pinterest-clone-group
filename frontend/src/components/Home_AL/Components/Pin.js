@@ -89,7 +89,7 @@ align-items: center;
 flex-direction:column;
 box-sizing:border-box;
 cursor:pointer;
-width:256px;
+width:236px;
 position:relative;
 
 .ImageWrapper{
@@ -139,8 +139,8 @@ video{
 
 .IconsHideShow{
     display:none;
-    width:236px;
-    height:100%;
+    width:220px;
+    height:85%;
     
 }
 :hover .IconsHideShow{

@@ -3,23 +3,26 @@ import GoogleLogin from 'react-google-login'
 import { useDispatch } from 'react-redux'
 import { login } from '../../Redux/Auth/action'
 import './Gauth.css'
+import { useNavigate } from 'react-router-dom'
 
 export default function Gauth() {
+  const navigate = useNavigate();
   const dispatch = useDispatch()
   const clientId = "779029402943-c8c6rrt9rkfpf60it2qqv31agcgq8i55.apps.googleusercontent.com"
 
   const onLoginSuccess = (response) => {
-    console.log("loginSuccess",response.profileObj);
-    dispatch(login(response.profileObj))
+    console.log("loginSuccess", response.profileObj);
+    dispatch(login(response.profileObj));
+    navigate("/index");
   }
-  const onFailureSuccess = (response) =>{
-    console.log("fail sucess" , response)
-   
+  const onFailureSuccess = (response) => {
+    console.log("fail sucess", response)
+
   }
 
   return (
     <div>
-        <GoogleLogin
+      <GoogleLogin
         render={(renderProps) => (
           <button
             className="gbutton"

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Gauth from '../Auth/Gauth'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import { useDispatch } from 'react-redux';
 import { login } from '../../Redux/Auth/action';
@@ -27,7 +27,7 @@ const Navbar = () => {
   const [age, setAge] = useState("")
   const [passwordlogin, setPasswordlogin] = useState("")
   const [passwordsignin, setPasswordsignin] = useState("")
-  const navigate =useNavigate()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const handleOpen1 = () => setOpen1(true);
@@ -49,9 +49,9 @@ const Navbar = () => {
       }
     }).then((res) => res.json())
       .then((res) => {
-        if(res.token){
+        if (res.token) {
           dispatch(login(res.token))
-          // navigate('/todo')
+          navigate('/index')
         }
         if (res.responce == 'error') {
           alert(res.message)
@@ -64,28 +64,28 @@ const Navbar = () => {
   }
 
   // register user
-  function handleRegister(email, password,age) {
+  function handleRegister(email, password, age) {
     const data = {
-        age,
-        email,
-        password
+      age,
+      email,
+      password
     }
     fetch('http://localhost:8080/register', {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "content-Type": "application/json"
-        }
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "content-Type": "application/json"
+      }
     }).then((res) => res.json())
-        .then((res) => {
-            if(res.responce == 'error'){
-                alert(res.message)
-            }
-           handleOpen1();
-            
-        })
-        .catch((err) => console.log("error in fetch"))
-}
+      .then((res) => {
+        if (res.responce == 'error') {
+          alert(res.message)
+        }
+        handleOpen1();
+
+      })
+      .catch((err) => console.log("error in fetch"))
+  }
   return (
     <div>
       <div style={{ height: "70px", display: "flex", justifyContent: "space-between" }}>
@@ -108,13 +108,13 @@ const Navbar = () => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style} style={{ height: "90%", width: "25%",borderRadius:"40px", textAlign: "center", border: "1px solid #cecece" }} >
-            <img style={{width:"50px"}} src="https://tse1.mm.bing.net/th?id=OIP.EN9vozlRwTny3XSfz6iQJQHaHa&pid=Api&P=0" alt="pin-logo" />
+          <Box sx={style} style={{ height: "90%", width: "25%", borderRadius: "40px", textAlign: "center", border: "1px solid #cecece" }} >
+            <img style={{ width: "50px" }} src="https://tse1.mm.bing.net/th?id=OIP.EN9vozlRwTny3XSfz6iQJQHaHa&pid=Api&P=0" alt="pin-logo" />
             <h1 style={{ fontWeight: "500" }}>Welcome to Pinterest</h1>
             <p>Find new ideas to try</p>
 
 
-            <div style={{textAlign:"left",width:"70%",margin:"auto"}}>
+            <div style={{ textAlign: "left", width: "70%", margin: "auto" }}>
               <p>Email</p>
               <input value={emaillogin} onChange={(e) => setEmaillogin(e.target.value)} placeholder='Email' className="inputBox" type="text" />
               <p>Password</p>
@@ -123,12 +123,12 @@ const Navbar = () => {
 
 
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              <button onClick={() => handleLogin(emaillogin,passwordlogin)} className='butt-login'><p>Log in</p> </button>
+              <button onClick={() => handleLogin(emaillogin, passwordlogin)} className='butt-login'><p>Log in</p> </button>
             </Typography>
             <br />
             <br />
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              <Gauth/>
+              <Gauth />
             </Typography>
             <br />
             <Typography id="modal-modal-title" variant="h6" component="h2">
@@ -136,7 +136,7 @@ const Navbar = () => {
             </Typography>
             <br />
             <Typography id="modal-modal-description" sx={{ mt: 2 }} style={{ color: "grey", fontSize: "14px" }}>
-            By continuing, you agree to Pinterest's <br/> <b>Terms of Service</b> and acknowledge you've read our <br/> <b>Privacy Policy</b>
+              By continuing, you agree to Pinterest's <br /> <b>Terms of Service</b> and acknowledge you've read our <br /> <b>Privacy Policy</b>
             </Typography>
           </Box>
         </Modal>
@@ -148,13 +148,13 @@ const Navbar = () => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style} style={{ height: "90%", width: "25%",borderRadius:"40px", textAlign: "center", border: "1px solid #cecece" }} >
-            <img style={{width:"50px",marginTop:"-15x"}} src="https://tse1.mm.bing.net/th?id=OIP.EN9vozlRwTny3XSfz6iQJQHaHa&pid=Api&P=0" alt="pin-logo" />
-            <h1 style={{ fontWeight: "500",marginTop:"-10px" }}>Welcome to Pinterest</h1>
+          <Box sx={style} style={{ height: "90%", width: "25%", borderRadius: "40px", textAlign: "center", border: "1px solid #cecece" }} >
+            <img style={{ width: "50px", marginTop: "-15x" }} src="https://tse1.mm.bing.net/th?id=OIP.EN9vozlRwTny3XSfz6iQJQHaHa&pid=Api&P=0" alt="pin-logo" />
+            <h1 style={{ fontWeight: "500", marginTop: "-10px" }}>Welcome to Pinterest</h1>
             <p>Find new ideas to try</p>
 
 
-            <div style={{textAlign:"left",width:"70%",margin:"auto"}}>
+            <div style={{ textAlign: "left", width: "70%", margin: "auto" }}>
               <p>Email</p>
               <input value={emailsignin} onChange={(e) => setEmailsignin(e.target.value)} placeholder='Email' className="inputBox" type="text" />
               <p>Password</p>
@@ -165,18 +165,18 @@ const Navbar = () => {
 
 
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              <button onClick={() => handleRegister(emailsignin,passwordsignin,age)} className='butt-login'><p>Sign up</p> </button>
+              <button onClick={() => handleRegister(emailsignin, passwordsignin, age)} className='butt-login'><p>Sign up</p> </button>
             </Typography>
             <br />
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              <Gauth/>
+              <Gauth />
             </Typography>
             <br />
             <Typography id="modal-modal-title" variant="h6" component="h2">
               <button className='butt-home'><img src="https://tse1.mm.bing.net/th?id=OIP.SQYrUR9VynAj0nnRBYQZfwHaHa&pid=Api&P=0" alt="fb-icon" /> <p>Continue with Facebook</p> </button>
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }} style={{ color: "grey", fontSize: "14px" }}>
-            By continuing, you agree to Pinterest's <br/> <b>Terms of Service</b> and acknowledge you've read our <br/> <b>Privacy Policy</b>
+              By continuing, you agree to Pinterest's <br /> <b>Terms of Service</b> and acknowledge you've read our <br /> <b>Privacy Policy</b>
             </Typography>
           </Box>
         </Modal>
